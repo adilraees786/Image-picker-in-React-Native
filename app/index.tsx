@@ -1,7 +1,7 @@
 
 import { ThemedView } from "@/components/ThemedView";
 import { useState } from "react";
-import { FlatList, Image } from "react-native";
+import { FlatList, Image, StyleSheet } from "react-native";
 import Entypo from '@expo/vector-icons/Entypo';
 
 const imageArray = [
@@ -21,28 +21,11 @@ export default function ImageGallery() {
     return (
         <ThemedView style={{ flex: 1 }} >
             {/* <ThemedText type="title"> Image Gallery</ThemedText> */}
-            <ThemedView style={{
-                padding: 20,
-                backgroundColor: "transparent",
-                position: "absolute",
-                right: -18,
-                zIndex: 12,
-                gap: 20,
-                flexDirection: "column",
-            }}>
-                <Entypo style={{
-                    backgroundColor: "#e4eaef",
-                    padding: 12,
-                    borderRadius: 125,
-
-                }}
+            <ThemedView style={styles.iconsView}>
+                <Entypo style={styles.icons}
                     name="images" size={24} color="white" />
-                <Entypo style={{
-                    backgroundColor: "#e4eaef",
-                    padding: 12,
-                    borderRadius: 125,
+                <Entypo style={styles.icons}
 
-                }}
                     name="camera" size={24} color="white" />
             </ThemedView>
 
@@ -54,7 +37,7 @@ export default function ImageGallery() {
                     return (
                         <Image
                             source={{ uri: item }}
-                            style={{ height: 230, marginVertical: 10, }}
+                            style={styles.img}
 
 
                         />
@@ -66,3 +49,25 @@ export default function ImageGallery() {
     );
 }
 
+
+const styles = StyleSheet.create({
+    iconsView: {
+        padding: 20,
+        backgroundColor: "transparent",
+        position: "absolute",
+        right: -18,
+        zIndex: 12,
+        gap: 20,
+        flexDirection: "column",
+    },
+    icons: {
+        backgroundColor: "#e4eaef",
+        padding: 12,
+        borderRadius: 125,
+    },
+    img: {
+        height: 230,
+        marginVertical: 10,
+    }
+
+});
