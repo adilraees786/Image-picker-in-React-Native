@@ -21,16 +21,24 @@ export default function ImageGallery() {
     return (
         <ThemedView style={{ flex: 1 }} >
             {/* <ThemedText type="title"> Image Gallery</ThemedText> */}
-            <ThemedView style={{ padding: 20, flexDirection: "row" }}>
+            <ThemedView style={{
+                padding: 20,
+                backgroundColor: "transparent",
+                position: "absolute",
+                right: -18,
+                zIndex: 12,
+                gap: 20,
+                flexDirection: "column",
+            }}>
                 <Entypo style={{
-                    backgroundColor: "#ccc",
+                    backgroundColor: "#e4eaef",
                     padding: 12,
                     borderRadius: 125,
 
                 }}
                     name="images" size={24} color="white" />
                 <Entypo style={{
-                    backgroundColor: "#ccc",
+                    backgroundColor: "#e4eaef",
                     padding: 12,
                     borderRadius: 125,
 
