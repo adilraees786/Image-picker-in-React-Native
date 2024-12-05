@@ -1,5 +1,7 @@
-import { ThemedText } from "@/components/ThemedText";
+
 import { ThemedView } from "@/components/ThemedView";
+import { useState } from "react";
+import { FlatList, Image } from "react-native";
 
 const imageArray = [
     "https://images.unsplash.com/photo-1501786223405-6d024d7c3b8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW91bnRhaW58ZW58MHx8MHx8fDA%3D",
@@ -11,10 +13,29 @@ const imageArray = [
 ]
 
 export default function ImageGallery() {
+
+
+    const [images, setimages] = useState(imageArray);
+
     return (
         <ThemedView style={{ flex: 1 }} >
-            <ThemedText type="title"> Image Gallery</ThemedText>
+            {/* <ThemedText type="title"> Image Gallery</ThemedText> */}
+        <FlatList
+        data={imageArray}
+        keyExtractor={(data) => data}
+        renderItem={({item, index}) => {
+            return (
+         <Image
+         source={{uri: item}}
+         style={{height: 230, marginVertical: 10,}}
+         
+    
+         />
+            );
+        }}
+        />
         </ThemedView>
 
-    )
+    );
 }
+
