@@ -31,11 +31,8 @@ export default function ImageGallery() {
         console.log(result);
     
         if (!result.canceled) {
-            console.log("result.assets[0].uri=>",result.assets[0].uri );
-            console.log("result.assets[0].uri=>",result.assets[0] );
-            
-
-        //   setImage(result.assets[0].uri);
+            setImages([result.assets[0].uri,...images]);
+           
         }
       };
 
@@ -53,7 +50,7 @@ export default function ImageGallery() {
 
 
             <FlatList
-                data={imageArray}
+                data={images}
                 keyExtractor={(data) => data}
                 renderItem={({ item, index }) => {
                     return (
