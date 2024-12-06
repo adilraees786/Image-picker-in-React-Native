@@ -3,6 +3,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { useState } from "react";
 import { FlatList, Image, StyleSheet } from "react-native";
 import Entypo from '@expo/vector-icons/Entypo';
+import * as ImagePicker from 'expo-image-picker';
 
 const imageArray = [
     "https://images.unsplash.com/photo-1501786223405-6d024d7c3b8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW91bnRhaW58ZW58MHx8MHx8fDA%3D",
@@ -16,7 +17,23 @@ const imageArray = [
 export default function ImageGallery() {
 
 
-    const [images, setimages] = useState(imageArray);
+    const [images, setImages] = useState(imageArray);
+
+    const pickImage = async () => {
+        // No permissions request is necessary for launching the image library
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ['images'],
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+        });
+    
+        console.log(result);
+    
+        if (!result.canceled) {
+          setImage(result.assets[0].uri);
+        }
+      };
 
     return (
         <ThemedView style={{ flex: 1 }} >
