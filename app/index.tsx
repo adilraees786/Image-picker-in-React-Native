@@ -22,29 +22,52 @@ export default function ImageGallery() {
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
         let result = await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ['images'],
-          allowsEditing: true,
-          aspect: [4, 3],
-          quality: 1,
+            mediaTypes: ['images'],
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
         });
-    
+
         console.log(result);
-    
+
         if (!result.canceled) {
-            setImages([result.assets[0].uri,...images]);
-           
+            setImages([result.assets[0].uri, ...images]);
+
         }
-      };
+    };
+
+    const pickImagefromcamera = async () => {
+
+        const permission =  await ImagePicker.requestCameraPermissionsAsync();
+        if (permission.granted){
+
+            let result = await ImagePicker.launchCameraAsync({
+                mediaTypes: ['images'],
+                allowsEditing: true,
+                aspect: [4, 3],
+                quality: 1,
+            });
+    
+            console.log(result);
+    
+            if (!result.canceled) {
+                setImages([result.assets[0].uri, ...images]);
+    
+            }
+        }
+        // No permissions request is necessary for launching the image library
+        
+    };
 
     return (
         <ThemedView style={{ flex: 1 }} >
             {/* <ThemedText type="title"> Image Gallery</ThemedText> */}
             <ThemedView style={styles.iconsView}>
                 <Entypo style={styles.icons}
-                onPress={pickImage}
+                    onPress={pickImage}
                     name="images" size={24} color="white" />
                 <Entypo style={styles.icons}
-
+onPress={pickImagefromcamera}
                     name="camera" size={24} color="white" />
             </ThemedView>
 
