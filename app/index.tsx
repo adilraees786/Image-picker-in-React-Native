@@ -31,7 +31,11 @@ export default function ImageGallery() {
         console.log(result);
     
         if (!result.canceled) {
-          setImage(result.assets[0].uri);
+            console.log("result.assets[0].uri=>",result.assets[0].uri );
+            console.log("result.assets[0].uri=>",result.assets[0] );
+            
+
+        //   setImage(result.assets[0].uri);
         }
       };
 
@@ -40,6 +44,7 @@ export default function ImageGallery() {
             {/* <ThemedText type="title"> Image Gallery</ThemedText> */}
             <ThemedView style={styles.iconsView}>
                 <Entypo style={styles.icons}
+                onPress={pickImage}
                     name="images" size={24} color="white" />
                 <Entypo style={styles.icons}
 
