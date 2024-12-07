@@ -55,7 +55,7 @@ export default function ImageGallery() {
     
             }
         }
-        // No permissions request is necessary for launching the image library
+      
         
     };
 
