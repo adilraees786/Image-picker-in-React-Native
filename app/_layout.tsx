@@ -41,3 +41,56 @@ export default function RootLayout() {
     </ThemeProvider>
   );
 }
+
+
+
+// const uploadImageToCloudinary = async (obj: any) => {
+//   const cloudName = "dxc9gtsl2";
+//   const apiKey = "425621276711985";
+//   const apiSecret = "-BBUPHUpD0ylxw0nF1Jwfuw52as";
+
+//   const timestamp = Math.floor(Date.now() / 1000);
+//   const signature = generateSignature(timestamp, apiSecret);
+
+//   const formData = new FormData();
+//   console.log("obj=>", obj);
+
+//   formData.append("file", {
+//     uri: obj.uri,
+//     name: obj.fileName,
+//     type: obj.mimeType,
+//   });
+
+//   formData.append("api_key", apiKey);
+//   formData.append("timestamp", timestamp.toString());
+//   formData.append("signature", await signature);
+
+//   console.log("formData=>", formData);
+
+//   const response = await fetch(
+//     `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+//     {
+//       method: "POST",
+//       body: formData,
+//     }
+//   );
+
+//   const data = await response.json();
+
+//   if (response.ok) {
+//     console.log("data=>", data.secure_url);
+//     return data.secure_url;
+//   } else {
+//     console.log("error=>", data.error.message);
+//     return data.error.message;
+//   }
+// };
+// async function generateSignature(timestamp: any, apiSecret: any) {
+//   const signatureString = `timestamp=${timestamp}${apiSecret}`;
+//   const digest = await Crypto.digestStringAsync(
+//     Crypto.CryptoDigestAlgorithm.SHA256,
+//     signatureString
+//   );
+
+//   return digest;
+// }
