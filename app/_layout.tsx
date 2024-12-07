@@ -44,6 +44,8 @@ export default function RootLayout() {
 
 
 
+// cloudinary
+
 // const uploadImageToCloudinary = async (obj: any) => {
 //   const cloudName = "dxc9gtsl2";
 //   const apiKey = "425621276711985";

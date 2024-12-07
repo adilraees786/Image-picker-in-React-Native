@@ -63,7 +63,6 @@ export default function ImageGallery() {
 
     return (
         <ThemedView style={{ flex: 1 }} >
-            {/* <ThemedText type="title"> Image Gallery</ThemedText> */}
             <ThemedView style={styles.iconsView}>
                 <Entypo style={styles.icons}
                     onPress={pickImage}
