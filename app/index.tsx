@@ -59,6 +59,8 @@ export default function ImageGallery() {
         
     };
 
+   
+
     return (
         <ThemedView style={{ flex: 1 }} >
             {/* <ThemedText type="title"> Image Gallery</ThemedText> */}
